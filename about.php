@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="components/css/styles.css">
     <!-- Compiled and minified JavaScript -->
     <script type="text/javascript" src='components/js/functions.js'></script>
-    <script src="components/js/jquery-3.3.1.js"></script>
     <style>
     #view-source {
       position: fixed;
@@ -35,11 +34,9 @@
     }
     </style>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.tooltipped');
-        var instances = M.Tooltip.init(elems, options);
-      });
-
+        $(document).ready(function(){
+          $('.parallax').parallax();
+        });
     </script>
 
 
@@ -114,68 +111,21 @@
       	</nav>
       </div>
 
-      <div class="android-content mdl-layout__content">
-        <div class="android-more-section"><center>
-          <h2 class="orange-text">Utility Models</h2>
-          <p class="gray-text">
-            A utility model is a patent-like intellectual property right to protect inventions. This type of right is only available in some countries. Although a utility model is similar to a patent, it is generally cheaper to obtain and maintain, has a shorter term (generally 6 to 15 years), shorter grant lag, and less stringent patentability requirements. In some countries, it is only available for inventions in certain fields of technology and/or only for products. Utility models can be described as second-class patents.</p>
-
-          <button class="btn flat waves-effect waves-light"> View Database</button>
-          <div class="hr"><br><br><br></div>
-          <div class="col s12">
-          <!--Utility Table-->
-          <table class="highlight centered responsive-table">
-            <thead>
-              <tr>
-
-                <th>Reg. No. <i class="fa fa-sort"></i></th>
-                <th class="title">Title of Work <i class="fa fa-sort"></i></th>
-                <th>Agency <i class="fa fa-sort"></i></th>
-                <th>Category <i class="fa fa-sort"></i></th>
-                <th>Date Issued <i class="fa fa-sort"></i></th>
-                <th>Date Received <i class="fa fa-sort"></i></th>
-                <th>Year <i class="fa fa-sort"></i></th>
-                <th>Status <i class="fa fa-sort"></i></th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <?php
-           $fetch_cus = mysqli_query($connect, "SELECT * FROM utility_model ORDER BY um_id ASC")
-            or die("Error: Could not fetch rows!".mysqli_error($connect));
-
-           while($row = mysqli_fetch_array($fetch_cus))
-           {
-            $um_id = $row['um_id'];
-            echo'<tr>
-            
-            <td>'.$row['um_reg_no'].'</td>
-            <td>'. $row['um_title'].'</td>
-            <td>'. $row['um_agency'].'</td>
-            <td>'. $row['um_category'].'</td> 
-            <td>'. $row['um_issue_date'].'</td> 
-            <td>'. $row['um_received_date'].'</td>
-            <td>'. $row['um_year'].'</td>
-            <td>'. $row['um_status'].'</td>
-            <td>
-                      <div id="mytooltip" class="icon material-icons"><button class="btn-floating flat waves-effect waves-light btn-small tooltipped" data-position="top" data-delay="50" data-tooltip="View"><i class="material-icons" >remove_red_eye</i></button></div>
-                      <div class="mdl-tooltip" for="mytooltip">View</div>
-                      <div id="mytooltip2" class="icon material-icons"><a class="btn-floating waves-effect waves-light orange btn-small btn tooltipped"><i class="material-icons" data-position="bottom" data-delay="50" data-tooltip="Edit">create</i></a></div>
-                      <div class="mdl-tooltip" for="mytooltip2">Edit</div>
-                      <div id="mytooltip3" class="icon material-icons"><a class="btn-floating waves-effect waves-light red btn-small btn tooltipped"><i class="material-icons" data-position="bottom" data-delay="50" data-tooltip="Delete">delete</i></a></div>
-                      <div class="mdl-tooltip" for="mytooltip3">Delete</div>  
-                    </td>
-            </tr>';
-
-           }
-          ?>
-
-        
-            </tbody>
-          </table>
+        <div class="parallax-container">
+            <div class="parallax"><img src="components/images/parallax1.jpg"></div>
+          </div>
+          <div class="section white">
+            <div class="row container">
+              <h2 class="header">Parallax</h2>
+              <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+            </div>
+          </div>
+          <div class="parallax-container">
+            <div class="parallax"><img src="components/images/parallax2.png"></div>
         </div>
-      </div>
+        <div class="android-more-section"><center>
+            
+        </div>
 
         <footer class="mdl-mega-footer android-footer">
     		  <div class="mdl-mega-footer__middle-section">
@@ -235,6 +185,10 @@
     		</footer>
       </div>
     </div>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="components/js/materialize.js"></script>
+    <script src="components/js/init.js"></script>
     <script src="components/js/material.js"></script>
   </body>
 </html>
